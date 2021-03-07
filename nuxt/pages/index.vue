@@ -8,26 +8,25 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import axios from 'axios'
+import Vue from "vue";
+import axios from "axios";
 
 export default Vue.extend({
- data() {
-   return {
-     sampleData: '',
-   }
- },
-  mounted () {
-  console.log('mounted');
- },
- methods: {
-   push(): void {
-    console.log('pushed');
-    axios.get('/api/')
-    .then((response) => this.sampleData = response.data)
-     },
-    }
-})
+  data() {
+    return {
+      sampleData: "",
+    };
+  },
+  mounted() {
+    console.log("mounted");
+  },
+  methods: {
+    push(): void {
+      console.log("pushed");
+      axios.get("/api/").then((response) => (this.sampleData = response.data));
+    },
+  },
+});
 </script>
 
 <style>
@@ -36,8 +35,8 @@ export default Vue.extend({
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
