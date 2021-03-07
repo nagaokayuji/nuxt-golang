@@ -29,7 +29,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style lang="scss">
 .container {
   min-height: 100vh;
 }
