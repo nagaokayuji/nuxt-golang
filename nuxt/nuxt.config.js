@@ -5,6 +5,15 @@ export default {
     port: 3000,
     host: '0.0.0.0',  
   },
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    '/api/': {
+      target: 'http://app:8080', // dockerのやつ
+      pathRewrite: {'^/api/': '/'},
+    }
+},
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt',
@@ -40,6 +49,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

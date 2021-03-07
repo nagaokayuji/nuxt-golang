@@ -5,7 +5,7 @@ EXPOSE 3000
 
 WORKDIR /app
 COPY ./package.json /app
-# COPY ./package-lock.json /app
+COPY ./package-lock.json /app
 COPY . /app
 
 RUN npm install 

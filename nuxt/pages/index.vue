@@ -1,24 +1,38 @@
 <template lang="pug">
   .container
     Logo
-    span yea
-    h1 nuxt
+    div
+      button(@click="push") push here to send request
+    div ↓↓ response ↓↓
+    span {{sampleData}}
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import axios from 'axios'
 
-export default Vue.extend({})
+export default Vue.extend({
+ data() {
+   return {
+     sampleData: '',
+   }
+ },
+  mounted () {
+  console.log('mounted');
+ },
+ methods: {
+   push(): void {
+    console.log('pushed');
+    axios.get('/api/')
+    .then((response) => this.sampleData = response.data)
+     },
+    }
+})
 </script>
 
 <style>
 .container {
-  /* margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center; */
 }
 
 .title {
