@@ -1,0 +1,37 @@
+version: '3'
+services:
+  app:
+    container_name: app
+    build: ./golang
+    volumes:
+      - ./golang:/go/src/app
+      - /app/node_modules
+    ports:
+      - "8080:8080"
+
+  nuxt:
+    container_name: nuxt
+    build: ./nuxt
+    ports:
+      - 3000:3000
+    volumes:
+      - ./nuxt:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    command: sh -c "yarn && yarn dev"
+
+  mysql:
+    container_name: mysql
+    platform: linux/x86_64
+    image: mysql:8.0
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: golang-nuxt-app
+volumes:
+  db-data:
