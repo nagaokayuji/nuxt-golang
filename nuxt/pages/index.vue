@@ -1,7 +1,8 @@
 <template lang="pug">
   .container
     Logo
-      h1.nuxt
+    span yea
+    h1 nuxt
 </template>
 
 <script lang="ts">
@@ -12,12 +13,12 @@ export default Vue.extend({})
 
 <style>
 .container {
-  margin: 0 auto;
+  /* margin: 0 auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center; */
 }
 
 .title {
