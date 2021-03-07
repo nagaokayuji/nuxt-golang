@@ -8,7 +8,8 @@ ENV GO111MODULE=on
 RUN apk add --no-cache \
         alpine-sdk \
         git \
-    && go get github.com/pilu/fresh
+    && go get github.com/pilu/fresh \
+    && go get github.com/gin-gonic/gin
 
 
 EXPOSE 8080
