@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   app:
     container_name: app
@@ -23,15 +23,15 @@ services:
 
   mysql:
     container_name: mysql
-    platform: linux/x86_64
+    platform: linux/x86_64 # M1 Mac対応のため
     image: mysql:8.0
     volumes:
       - db-data:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-      MYSQL_ROOT_HOST: '%'
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_HOST: "%"
       MYSQL_DATABASE: golang-nuxt-app
 volumes:
   db-data:
