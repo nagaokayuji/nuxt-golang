@@ -1,8 +1,6 @@
 # nuxt-golang-sample
 
-A sample application for Typescript(Nuxt.js) + Golang(gin).
-
-Following features a
+A sample application for Typescript(Nuxt.js) + Golang(gin, gorm) works in docker.
 
 ## Setup
 
@@ -10,13 +8,13 @@ Following features a
 
 ## Usage
 
-- build
+- build app
 
 ```sh
 $ docker-compose build
 ```
 
-- run
+- run app
 
 ```sh
 $ docker-compose run
