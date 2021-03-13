@@ -1,10 +1,10 @@
 <template lang="pug">
   .container
-    Logo
     div
       button(@click="push") push here to send request
     div ↓↓ response ↓↓
-    span {{sampleData}}
+    p {{sampleData}}
+    TodoApp
 </template>
 
 <script lang="ts">
@@ -22,7 +22,6 @@ export default Vue.extend({
   },
   methods: {
     push(): void {
-      console.log("pushed");
       axios.get("/api/").then((response) => (this.sampleData = response.data));
     },
   },
@@ -31,6 +30,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .container {
-  min-height: 100vh;
+  text-align: center;
 }
 </style>
