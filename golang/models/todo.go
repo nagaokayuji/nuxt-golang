@@ -12,6 +12,6 @@ type Todo struct {
 }
 
 type CreateTodoInput struct {
-	Title    string    `json:"title" binding: "required"`
-	Deadline time.Time `json:"deadline" binding: "required"`
+	Title    string    `json:"title"`
+	Deadline time.Time `json:"deadline"`
 }
