@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"app/models"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
@@ -24,12 +25,23 @@ func GetTodo(c *gin.Context) {
 	if err := models.DB.Where("uuid = ?", uuid).First(&todo).Error; err != nil {
 		c.AbortWithStatus(404)
 		fmt.Println(err)
-	} else {
-		c.JSON(http.StatusOK, todo)
+		return
 	}
+
+	c.JSON(http.StatusOK, todo)
 }
 
+// 1件登録
 func CreateTodo(c *gin.Context) {
-	// TODO not yet implemented
-	fmt.Println(uuid.New().String())
+	var input models.CreateTodoInput
+
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		fmt.Println(err.Error())
+		return
+	}
+
+	todo := models.Todo{UUID: uuid.New().String(), Title: input.Title, State: false, Deadline: input.Deadline, CreatedAt: time.Now(), UpdatedAt: time.Now()}
+	models.DB.Create(&todo)
+	c.JSON(http.StatusOK, todo)
 }
