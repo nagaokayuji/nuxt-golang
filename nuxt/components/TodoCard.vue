@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  p {{todo.uuid}} {{todo.title}}
+  p {{todo.title}} {{todo.deadline}} {{todo.state}}
 
 </template>
 
