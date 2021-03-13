@@ -7,6 +7,8 @@ services:
       - ./golang:/go/src/app
     ports:
       - "8080:8080"
+    depends_on:
+      - "nuxt"
     command: sh -c "fresh"
 
   nuxt:
@@ -19,19 +21,22 @@ services:
       - /app/node_modules
     stdin_open: true
     tty: true
+    depends_on:
+      - "db"
     command: sh -c "yarn && yarn dev"
 
-  mysql:
-    container_name: mysql
+  db:
+    container_name: db
     platform: linux/x86_64 # M1 Mac対応のため
-    image: mysql:8.0
+    image: mysql:5.7
     volumes:
-      - db-data:/var/lib/mysql
+      - ./mysql/conf:/etc/mysql/conf.d
+      - ./mysql/data:/var/lib/mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - 3306:3306
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_ROOT_HOST: "%"
       MYSQL_DATABASE: golang-nuxt-app
-volumes:
-  db-data:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: root
+      TZ: "Asia/Tokyo"
