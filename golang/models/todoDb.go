@@ -7,7 +7,9 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-func SetupDB() *gorm.DB {
+var DB *gorm.DB
+
+func SetupDB() {
 	DBMS := "mysql"
 	USER := "root"
 	PASS := "password"
@@ -28,6 +30,5 @@ func SetupDB() *gorm.DB {
 	db.Set("gorm:table_options", "ENGINE=InnoDB")
 
 	fmt.Println("db connected: ", &db)
-	return db
-
+	DB = db
 }

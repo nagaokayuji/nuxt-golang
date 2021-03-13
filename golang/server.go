@@ -15,12 +15,13 @@ func main() {
 }
 
 func server() {
-	db := models.SetupDB()
-	db.AutoMigrate(&models.Todo{})
+	models.SetupDB()
+	models.DB.AutoMigrate(&models.Todo{})
+
 	r := gin.Default()
 
 	r.Use(func(c *gin.Context) {
-		c.Set("db", db)
+		c.Set("db", models.DB)
 	})
 
 	r.GET("/", func(c *gin.Context) {
@@ -31,6 +32,10 @@ func server() {
 
 	// 全件
 	r.GET("/todos", controllers.GetAllTodos)
+	// 1件
+	r.GET("/todos/:uuid", controllers.GetTodo)
+	// 1件作成
+	r.POST("/todos", controllers.CreateTodo)
 
 	r.Run(":8080")
 }
