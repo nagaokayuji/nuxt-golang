@@ -8,7 +8,8 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - "nuxt"
+      db:
+        condition: service_healthy
     command: sh -c "fresh"
 
   nuxt:
@@ -21,8 +22,6 @@ services:
       - /app/node_modules
     stdin_open: true
     tty: true
-    depends_on:
-      - "db"
     command: sh -c "yarn && yarn dev"
 
   db:
@@ -40,3 +39,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_USER: root
       TZ: "Asia/Tokyo"
+    healthcheck:
+      test: "/etc/init.d/mysql status"
+      interval: 1s
+      retries: 60
