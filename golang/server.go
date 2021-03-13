@@ -1,9 +1,9 @@
 package main
 
 import (
-	"app/controllers"
+	"golang/controllers"
 
-	"app/models"
+	"golang/models"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/mysql"

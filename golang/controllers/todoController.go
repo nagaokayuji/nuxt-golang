@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"app/models"
 	"time"
+
+	"golang/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
