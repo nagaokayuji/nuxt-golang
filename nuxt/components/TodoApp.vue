@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  p hogehoge
+  TodoForm
   button(@click="getAllTodos") getAll
   div(v-for="todo in todos" :key="todo.uuid")
     TodoCard(:todo="todo")
