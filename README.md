@@ -1,14 +1,16 @@
 # nuxt-golang-sample
 
-A sample application for Typescript(Nuxt.js) + Golang(gin, gorm) works in docker.
+A sample application for Typescript(Nuxt.js), Golang(gin, gorm) and MySQL5.7 runs in docker.
 
-## Setup
+## Included
 
-[Docker](https://www.docker.com/) is required.
+- MySQL 5.7
+- Golang 1.16.0
+- Node 15.11.0
 
-## Usage
+## Running the app in local development
 
-- build app
+- build
 
 ```sh
 $ docker-compose build
@@ -16,6 +18,10 @@ $ docker-compose build
 
 - run app
 
+Simply run:
+
 ```sh
 $ docker-compose run
 ```
+
+By default you can access server via http://localhost:3000
