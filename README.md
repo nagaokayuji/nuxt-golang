@@ -1,12 +1,13 @@
 # nuxt-golang-sample
 
-A sample application for Typescript(Nuxt.js), Golang(gin, gorm) and MySQL5.7 runs in docker.
+RESTful API server and SPA.
 
-## Included
+## About
 
-- MySQL 5.7
-- Golang 1.16.0
-- Node 15.11.0
+- [Docker](https://www.docker.com/) as the container service
+- [MySQL](https://www.mysql.com/) 5.7 as the database
+- [Golang](https://golang.org/) 1.16.0 as the RESTFul API server
+- [Node.js](https://nodejs.org/en/) 15.11.0 as the run-time environment to run JavaScript
 
 ## Running the app in local development
 
@@ -25,3 +26,12 @@ $ docker-compose run
 ```
 
 By default you can access server via http://localhost:3000
+
+# Contributing
+
+Your contributions are always welcome!
+Feel free to raise Issues, or send Pull Requests.
+
+# License
+
+MIT License.
