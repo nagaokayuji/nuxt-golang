@@ -38,6 +38,8 @@ func server() {
 	r.POST("/todos", controllers.CreateTodo)
 	// toggle
 	r.PATCH("/todos/:uuid", controllers.ToggleStatus)
+	// delete
+	r.DELETE("/todos/:uuid", controllers.DeleteTodo)
 
 	r.Run(":8080")
 }

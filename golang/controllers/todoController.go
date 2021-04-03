@@ -59,3 +59,12 @@ func ToggleStatus(c *gin.Context) {
 	models.DB.Save(&todo)
 	c.JSON(http.StatusOK, todo)
 }
+
+func DeleteTodo(c *gin.Context) {
+	uuid := c.Params.ByName("uuid")
+	if row := models.DB.Delete(&models.Todo{}, "uuid = ?", uuid).RowsAffected; row != 1 {
+		c.AbortWithStatus(404)
+		return
+	}
+	c.Status(http.StatusOK)
+}
