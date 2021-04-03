@@ -1,6 +1,8 @@
 <template lang="pug">
-div
-  p {{todo.title}} {{todo.deadline | dateFormat}} {{todo.state}}
+div.container
+  .card-title {{todo.title}}
+  .card-deadline {{todo.deadline | dateFormat}}
+  .card-state {{todo.state}}
 </template>
 
 <script lang="ts">
@@ -26,8 +28,28 @@ export default Vue.extend({
   methods: {},
 });
 </script>
-<style>
-.body {
-  color: red;
+<style lang="scss">
+.container {
+  padding: 12px;
+  width: 65vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  &-title {
+    width: 50%;
+  }
+  &-deadline {
+    width: 30%;
+    color: gray;
+  }
+  &-state {
+    width: 20%;
+    color: blue;
+    .-done {
+      color: green;
+    }
+  }
 }
 </style>

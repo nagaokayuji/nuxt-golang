@@ -48,7 +48,7 @@ export default Vue.extend({
   },
 });
 </script>
-<style>
+<style lang="scss">
 .body {
   color: red;
 }

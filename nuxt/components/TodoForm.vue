@@ -1,11 +1,11 @@
 <template lang="pug">
 div
-  .title
-    input.title__input(type="text" v-model="title" placeholder="input title")
-  .deadline
-    input.deadline__input(type="date" v-model="deadline")
-  .submit
-    button.submit__button(@click="registerTodo") submit
+  .form-title
+    input.form-title__input(type="text" v-model="title" placeholder="input title")
+  .form-deadline
+    input.form-deadline__input(type="date" v-model="deadline")
+  .form-submit
+    button.form-submit__button(@click="registerTodo") submit
 </template>
 
 <script lang="ts">
@@ -46,30 +46,32 @@ export default Vue.extend({
   color: red;
 }
 
-.title {
-  padding: 12px;
-  height: 48px;
+.form {
+  &-title {
+    padding: 12px;
+    height: 48px;
 
-  &__input {
-    width: 45vw;
-    height: 100%;
+    &__input {
+      width: 45vw;
+      height: 100%;
+    }
   }
-}
 
-.deadline {
-  padding: 12px;
-  height: 48px;
+  &-deadline {
+    padding: 12px;
+    height: 48px;
 
-  &__input {
-    width: 45vw;
-    height: 100%;
+    &__input {
+      width: 45vw;
+      height: 100%;
+    }
   }
-}
 
-.submit {
-  padding: 12px;
-  &__button {
-    font-size: 1.2rem;
+  &-submit {
+    padding: 12px;
+    &__button {
+      font-size: 1.2rem;
+    }
   }
 }
 </style>
