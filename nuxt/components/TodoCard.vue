@@ -1,9 +1,11 @@
 <template lang="pug">
-div.card
-  .card-title {{todo.title}}
-  .card-deadline {{todo.deadline | dateFormat}}
-  .card-state(:class="{'-done': todo.state}") {{todo.state | stateFormat}}
-  .card-delete(@click.prevent="deleteTodo(todo.uuid)")
+div
+  div.card
+    .card-title {{todo.title}}
+    .card-deadline {{todo.deadline | dateFormat}}
+    .card-state(:class="{'-done': todo.state}" @click.prevent="toggleTodo(todo.uuid)")
+    .card-delete
+      .card-delete__button(@click.prevent="deleteTodo(todo.uuid)")
 </template>
 
 <script lang="ts">
@@ -33,6 +35,9 @@ export default Vue.extend({
     deleteTodo(uuid: string): void {
       this.$emit("deleteTodo", uuid);
     },
+    toggleTodo(uuid: string): void {
+      this.$emit("toggleTodo", uuid);
+    },
   },
 });
 </script>
@@ -60,21 +65,31 @@ export default Vue.extend({
   }
 
   &-state {
-    width: 6rem;
-    color: blue;
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    &::before {
+      content: "□";
+    }
     &.-done {
-      color: green;
+      &::before {
+        content: "✅";
+      }
     }
   }
 
   &-delete {
-    &::after {
-      position: relative;
-      left: 24px;
-      width: 20px;
-      height: 20px;
-      content: "✗";
+    position: relative;
+    right: -90px;
+    &__button {
       cursor: pointer;
+      &::after {
+        width: 20px;
+        height: 20px;
+        content: "✗";
+        cursor: pointer;
+      }
     }
   }
 }
