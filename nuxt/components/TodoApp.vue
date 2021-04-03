@@ -1,9 +1,10 @@
 <template lang="pug">
 div
-  TodoForm
+  TodoForm(@refleshTodos="getAllTodos")
   button(@click="getAllTodos") getAll
-  div(v-for="todo in todos" :key="todo.uuid")
-    TodoCard(:todo="todo")
+  ul
+    li(v-for="todo in todos" :key="todo.uuid")
+      TodoCard(:todo="todo")
 
 </template>
 
@@ -35,7 +36,8 @@ export default Vue.extend({
     };
   },
   mounted() {
-    console.log("mounted");
+    // initial view
+    this.getAllTodos();
   },
   methods: {
     getAllTodos() {

@@ -3,7 +3,6 @@ div
   input(type="text" v-model="title" placeholder="input title")
   input(type="date" v-model="deadline")
   button(@click="registerTodo") submit
-
 </template>
 
 <script lang="ts">
@@ -30,10 +29,12 @@ export default Vue.extend({
   },
   methods: {
     registerTodo() {
-      axios.post("/api/todos", {
-        title: this.title,
-        deadline: this._deadline,
-      });
+      axios
+        .post("/api/todos", {
+          title: this.title,
+          deadline: this._deadline,
+        })
+        .then(this.$emit("refleshTodos"));
     },
   },
 });
