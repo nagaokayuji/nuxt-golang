@@ -1,7 +1,6 @@
 <template lang="pug">
 div
   p {{todo.title}} {{todo.deadline | dateFormat}} {{todo.state}}
-
 </template>
 
 <script lang="ts">

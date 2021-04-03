@@ -52,4 +52,7 @@ export default Vue.extend({
 .body {
   color: red;
 }
+ul {
+  list-style: none;
+}
 </style>
