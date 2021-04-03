@@ -13,4 +13,7 @@ export default Vue.extend();
 .container {
   padding: 40px 20%;
 }
+body {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
 </style>

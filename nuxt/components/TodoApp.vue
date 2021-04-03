@@ -57,9 +57,6 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-.body {
-  color: red;
-}
 ul {
   list-style: none;
   padding: 0;
