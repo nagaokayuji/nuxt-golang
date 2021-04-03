@@ -52,6 +52,7 @@ export default Vue.extend({
     height: 48px;
 
     &__input {
+      font-size: 1.2rem;
       width: 45vw;
       height: 100%;
     }
@@ -62,6 +63,7 @@ export default Vue.extend({
     height: 48px;
 
     &__input {
+      font-size: 1.2rem;
       width: 45vw;
       height: 100%;
     }
@@ -70,7 +72,17 @@ export default Vue.extend({
   &-submit {
     padding: 12px;
     &__button {
+      height: 48px;
+      padding: 4px 24px;
+      cursor: pointer;
+      color: white;
+      background-color: blue;
+      border-radius: 8px;
       font-size: 1.2rem;
+      border: none;
+      &:hover {
+        background-color: rgb(51, 51, 255);
+      }
     }
   }
 }
