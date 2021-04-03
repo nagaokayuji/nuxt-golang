@@ -36,6 +36,8 @@ func server() {
 	r.GET("/todos/:uuid", controllers.GetTodo)
 	// 1件作成
 	r.POST("/todos", controllers.CreateTodo)
+	// toggle
+	r.PATCH("/todos/:uuid", controllers.ToggleStatus)
 
 	r.Run(":8080")
 }

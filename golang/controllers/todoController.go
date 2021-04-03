@@ -46,3 +46,16 @@ func CreateTodo(c *gin.Context) {
 	models.DB.Create(&todo)
 	c.JSON(http.StatusOK, todo)
 }
+
+func ToggleStatus(c *gin.Context) {
+	uuid := c.Params.ByName("uuid")
+	var todo models.Todo
+	if err := models.DB.Where("uuid = ?", uuid).First(&todo).Error; err != nil {
+		c.AbortWithStatus(404)
+		fmt.Println(err)
+		return
+	}
+	todo.State = !todo.State
+	models.DB.Save(&todo)
+	c.JSON(http.StatusOK, todo)
+}
