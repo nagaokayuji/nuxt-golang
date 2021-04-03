@@ -3,6 +3,7 @@ div.card
   .card-title {{todo.title}}
   .card-deadline {{todo.deadline | dateFormat}}
   .card-state(:class="{'-done': todo.state}") {{todo.state | stateFormat}}
+  .card-delete(@click.prevent="deleteTodo(todo.uuid)")
 </template>
 
 <script lang="ts">
@@ -28,7 +29,11 @@ export default Vue.extend({
       return state ? "Done" : "NOT Done";
     },
   },
-  methods: {},
+  methods: {
+    deleteTodo(uuid: string): void {
+      this.$emit("deleteTodo", uuid);
+    },
+  },
 });
 </script>
 <style lang="scss">
@@ -39,10 +44,13 @@ export default Vue.extend({
   flex-direction: row;
   border: 1px solid;
   border-style: dashed;
+  align-items: center; /* 縦方向中央揃え */
   margin: 12px 0;
 
   &-title {
     width: 50%;
+    word-wrap: break-word;
+    word-break: break-all;
   }
 
   &-deadline {
@@ -65,6 +73,16 @@ export default Vue.extend({
     }
     &.-done {
       color: green;
+    }
+  }
+  &-delete {
+    &::after {
+      position: relative;
+      left: 36px;
+      width: 20px;
+      height: 20px;
+      content: "✗";
+      cursor: pointer;
     }
   }
 }

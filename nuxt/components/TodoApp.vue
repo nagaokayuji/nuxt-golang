@@ -4,7 +4,7 @@ div
     TodoForm(@refleshTodos="getAllTodos")
   ul
     li(v-for="todo in todos" :key="todo.uuid")
-      TodoCard(:todo="todo")
+      TodoCard(:todo="todo" @deleteTodo="deleteTodo")
 
 </template>
 
@@ -44,6 +44,10 @@ export default Vue.extend({
       axios
         .get<TodoResponse[]>("/api/todos")
         .then((data) => (this.todos = data.data));
+    },
+    async deleteTodo(uuid: string): Promise<void> {
+      await axios.delete<TodoResponse[]>("/api/todos/" + uuid);
+      this.getAllTodos();
     },
   },
 });
