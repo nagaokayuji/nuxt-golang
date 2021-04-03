@@ -11,6 +11,6 @@ export default Vue.extend();
 
 <style lang="scss">
 .container {
-  text-align: center;
+  padding: 40px 20%;
 }
 </style>

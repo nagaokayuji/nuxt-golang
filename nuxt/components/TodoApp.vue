@@ -1,7 +1,7 @@
 <template lang="pug">
 div
-  TodoForm(@refleshTodos="getAllTodos")
-  button(@click="getAllTodos") getAll
+  .todo-form
+    TodoForm(@refleshTodos="getAllTodos")
   ul
     li(v-for="todo in todos" :key="todo.uuid")
       TodoCard(:todo="todo")
@@ -40,7 +40,7 @@ export default Vue.extend({
     this.getAllTodos();
   },
   methods: {
-    getAllTodos() {
+    getAllTodos(): void {
       axios
         .get<TodoResponse[]>("/api/todos")
         .then((data) => (this.todos = data.data));
