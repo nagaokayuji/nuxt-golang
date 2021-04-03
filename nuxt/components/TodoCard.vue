@@ -1,5 +1,5 @@
 <template lang="pug">
-div.container
+div.card
   .card-title {{todo.title}}
   .card-deadline {{todo.deadline | dateFormat}}
   .card-state {{todo.state}}
@@ -29,24 +29,37 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-.container {
+.card {
   padding: 12px;
   width: 65vw;
   display: flex;
   flex-direction: row;
-}
+  border: 1px solid;
+  border-style: dashed;
+  margin: 12px 0;
 
-.card {
   &-title {
     width: 50%;
   }
+
   &-deadline {
     width: 30%;
     color: gray;
+    &::before {
+      font-size: 1.6rem;
+      color: black;
+      content: "| ";
+    }
   }
+
   &-state {
     width: 20%;
     color: blue;
+    &::before {
+      font-size: 1.6rem;
+      color: black;
+      content: "| ";
+    }
     .-done {
       color: green;
     }

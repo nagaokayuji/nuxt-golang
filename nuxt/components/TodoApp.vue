@@ -54,5 +54,6 @@ export default Vue.extend({
 }
 ul {
   list-style: none;
+  padding: 0;
 }
 </style>
