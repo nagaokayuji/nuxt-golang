@@ -38,7 +38,6 @@ export default Vue.extend({
 </script>
 <style lang="scss">
 .card {
-  padding: 12px;
   width: 65vw;
   display: flex;
   flex-direction: row;
@@ -46,39 +45,32 @@ export default Vue.extend({
   border-style: dashed;
   align-items: center; /* 縦方向中央揃え */
   margin: 12px 0;
+  font-size: 1rem;
 
   &-title {
-    width: 50%;
+    width: calc(100% - 14rem);
     word-wrap: break-word;
     word-break: break-all;
+    padding: 12px;
   }
 
   &-deadline {
-    width: 30%;
+    width: 6rem;
     color: gray;
-    &::before {
-      font-size: 1.6rem;
-      color: black;
-      content: "| ";
-    }
   }
 
   &-state {
-    width: 20%;
+    width: 6rem;
     color: blue;
-    &::before {
-      font-size: 1.6rem;
-      color: black;
-      content: "| ";
-    }
     &.-done {
       color: green;
     }
   }
+
   &-delete {
     &::after {
       position: relative;
-      left: 36px;
+      left: 24px;
       width: 20px;
       height: 20px;
       content: "✗";
