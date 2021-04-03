@@ -2,7 +2,7 @@
 div.card
   .card-title {{todo.title}}
   .card-deadline {{todo.deadline | dateFormat}}
-  .card-state {{todo.state}}
+  .card-state(:class="{'-done': todo.state}") {{todo.state | stateFormat}}
 </template>
 
 <script lang="ts">
@@ -23,6 +23,9 @@ export default Vue.extend({
   filters: {
     dateFormat(date: Date): string {
       return moment(date).format("YYYY/MM/DD");
+    },
+    stateFormat(state: boolean): string {
+      return state ? "Done" : "NOT Done";
     },
   },
   methods: {},
@@ -60,7 +63,7 @@ export default Vue.extend({
       color: black;
       content: "| ";
     }
-    .-done {
+    &.-done {
       color: green;
     }
   }
