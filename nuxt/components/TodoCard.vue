@@ -53,22 +53,24 @@ export default Vue.extend({
   font-size: 1rem;
 
   &-title {
-    width: calc(100% - 14rem);
+    width: calc(100% - 6rem - 20px);
     word-wrap: break-word;
     word-break: break-all;
     padding: 12px;
   }
 
   &-deadline {
+    padding: 12px;
     width: 6rem;
     color: gray;
   }
 
   &-state {
     height: 20px;
-    width: 20px;
-    font-size: 20px;
+    width: 25px;
+    font-size: 18px;
     cursor: pointer;
+    padding: 12px;
     &::before {
       content: "□";
     }
@@ -81,7 +83,7 @@ export default Vue.extend({
 
   &-delete {
     position: relative;
-    right: -90px;
+    right: -20px;
     &__button {
       cursor: pointer;
       &::after {
