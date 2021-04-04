@@ -70,7 +70,7 @@ export default Vue.extend({
     width: 18px;
     font-size: 18px;
     cursor: pointer;
-    padding: 12px;
+    margin: 12px;
     position: relative;
     &::before {
       position: absolute;
@@ -90,8 +90,8 @@ export default Vue.extend({
         border-left: 1px solid;
         border-bottom: 1px solid;
         transform: rotate(-45deg);
-        left: 16px;
-        top: 16px;
+        left: 4px;
+        top: 4px;
       }
     }
   }
@@ -101,11 +101,23 @@ export default Vue.extend({
     right: -20px;
     &__button {
       cursor: pointer;
-      &::after {
-        width: 20px;
-        height: 20px;
-        content: "✗";
-        cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+      color: rgb(73, 73, 73);
+      width: 0.9rem;
+      height: 0.05rem;
+      background: currentColor;
+      position: relative;
+      transform: rotate(45deg);
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        transform: rotate(90deg);
       }
     }
   }
