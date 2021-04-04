@@ -98,26 +98,38 @@ export default Vue.extend({
 
   &-delete {
     position: relative;
-    right: -20px;
+    right: -25px;
+
     &__button {
       cursor: pointer;
       display: inline-block;
       vertical-align: middle;
-      color: rgb(73, 73, 73);
-      width: 0.9rem;
-      height: 0.05rem;
-      background: currentColor;
       position: relative;
-      transform: rotate(45deg);
+      width: 1rem;
+      height: 1rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0.5rem;
+        left: 0.1rem;
+        transform: rotate(45deg);
+        color: rgb(73, 73, 73);
+        width: 0.9rem;
+        height: 0.05rem;
+        background: currentColor;
+      }
+
       &::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: inherit;
-        transform: rotate(90deg);
+        top: 0.5rem;
+        left: 0.1rem;
+        transform: rotate(-45deg);
+        color: rgb(73, 73, 73);
+        width: 0.9rem;
+        height: 0.05rem;
+        background: currentColor;
       }
     }
   }
