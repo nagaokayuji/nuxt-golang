@@ -66,17 +66,32 @@ export default Vue.extend({
   }
 
   &-state {
-    height: 20px;
-    width: 25px;
+    height: 18px;
+    width: 18px;
     font-size: 18px;
     cursor: pointer;
     padding: 12px;
+    position: relative;
     &::before {
-      content: "□";
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      border: 1px solid;
+      display: inline-block;
+      content: "";
     }
     &.-done {
-      &::before {
-        content: "✅";
+      &::after {
+        position: absolute;
+        content: "";
+        height: 5px;
+        width: 12px;
+        display: inline-block;
+        border-left: 1px solid;
+        border-bottom: 1px solid;
+        transform: rotate(-45deg);
+        left: 16px;
+        top: 16px;
       }
     }
   }
