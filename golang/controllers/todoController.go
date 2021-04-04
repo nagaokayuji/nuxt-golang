@@ -15,7 +15,7 @@ import (
 // 全件取得
 func GetAllTodos(c *gin.Context) {
 	var todos []models.Todo
-	models.DB.Order("updated_at desc").Find(&todos)
+	models.DB.Order("created_at desc").Find(&todos)
 	c.JSON(http.StatusOK, todos)
 }
 
