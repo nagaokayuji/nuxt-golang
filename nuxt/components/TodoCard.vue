@@ -73,6 +73,7 @@ export default Vue.extend({
     margin: 12px;
     position: relative;
     &::before {
+      border-radius: 3px;
       position: absolute;
       height: 18px;
       width: 18px;
