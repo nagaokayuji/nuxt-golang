@@ -47,6 +47,7 @@ export default Vue.extend({
   display: flex;
   flex-direction: row;
   border: 1px solid;
+  border-radius: 4px;
   border-style: dashed;
   align-items: center; /* 縦方向中央揃え */
   margin: 12px 0;
