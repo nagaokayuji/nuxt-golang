@@ -2,7 +2,6 @@ package main
 
 import (
 	"golang/controllers"
-
 	"golang/models"
 
 	"github.com/gin-gonic/gin"
