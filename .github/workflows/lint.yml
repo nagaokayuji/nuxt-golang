@@ -5,9 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Change directory
-        run: cd nuxt
       - name: Install modules
-        run: yarn install
+        run: cd nuxt && yarn install
       - name: Run ESLint
-        run: yarn lint:style
+        run: cd nuxt && yarn lint:style
