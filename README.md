@@ -1,3 +1,4 @@
+![license](https://img.shields.io/github/license/nagaokayuji/nuxt-golang) ![size](https://img.shields.io/github/languages/code-size/nagaokayuji/nuxt-golang) ![forks](https://img.shields.io/github/forks/nagaokayuji/nuxt-golang) 
 # nuxt-golang-sample
 
 RESTful API server and SPA.
